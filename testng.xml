@@ -1,0 +1,69 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="OptimumNutrition" parallel="tests">
+    <test name="tests.OptimumNutritionTestsChrome" parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.HomePageTests">
+                <methods>
+                    <include name="mainLogoTest"/>
+                    <include name="searchFunctionTest"/>
+                    <include name="shopByProductDropDownTest"/>
+                    <include name="redirectToSignInRegisterPageTest"/>
+                    <include name="clickOnTheBasketIconHeaderTest"/>
+                </methods>
+            </class>
+            <class name="tests.SearchResultsTests">
+                <methods>
+                    <include name="searchResultsPageUrlTest"/>
+                    <include name="sortingProductsUsingBundlesFilterFacet"/>
+                    <include name="sortingProductsByDescendingPrise"/>
+                    <include name="sortingProductsByAscendingPrise"/>
+                </methods>
+            </class>
+            <class name="tests.SignInPageTests">
+                <methods>
+                    <include name="signInPageUrlTest"/>
+                    <include name="clickOnForgottenYourPasswordLink"/>
+                    <include name="signInWithInvalidCredentialsUrlTest"/>
+                    <include name="signInWithInvalidCredentialsErrorMessageTest"/>
+                    <include name="signInWithEmptyFieldsTest"/>
+                    <include name="signInWithEmptyLoginFieldTest"/>
+                    <include name="signInWithEmptyPassWordFieldTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="tests.OptimumNutritionTestsFirefox" parallel="methods" thread-count="2">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.HomePageTests">
+                <methods>
+                    <include name="mainLogoTest"/>
+                    <include name="searchFunctionTest"/>
+                    <exclude name="shopByProductDropDownTest"/>
+                    <include name="redirectToSignInRegisterPageTest"/>
+                    <include name="clickOnTheBasketIconHeaderTest"/>
+                </methods>
+            </class>
+            <class name="tests.SearchResultsTests">
+                <methods>
+                    <include name="searchResultsPageUrlTest"/>
+                    <include name="sortingProductsUsingBundlesFilterFacet"/>
+                    <include name="sortingProductsByDescendingPrise"/>
+                    <include name="sortingProductsByAscendingPrise"/>
+                </methods>
+            </class>
+            <class name="tests.SignInPageTests">
+                <methods>
+                    <include name="signInPageUrlTest"/>
+                    <exclude name="clickOnForgottenYourPasswordLink"/>
+                    <exclude name="signInWithInvalidCredentialsUrlTest"/>
+                    <exclude name="signInWithInvalidCredentialsErrorMessageTest"/>
+                    <exclude name="signInWithEmptyFieldsTest"/>
+                    <exclude name="signInWithEmptyLoginFieldTest"/>
+                    <exclude name="signInWithEmptyPassWordFieldTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
